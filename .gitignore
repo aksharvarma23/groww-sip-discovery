@@ -1,0 +1,23 @@
+# Python / tooling
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Secrets: never commit keys
+.env
+.streamlit/secrets.toml
+
+# Survey responses are personal data: never commit
+survey/*.csv
+survey/*.xlsx
+
+# Raw scrapes and the full labelled corpus are large; the apps read
+# small summary files from outputs/ instead
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/manifest.json
+!data/raw/reddit_collection_log.json
+data/processed/*
+!data/processed/.gitkeep
+!data/processed/prepare_stats.json

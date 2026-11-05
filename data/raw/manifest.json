@@ -1,0 +1,35 @@
+{
+  "collected_on": "2026-10-20",
+  "sources": {
+    "app_store": {
+      "rows": 100,
+      "date_min": "2026-09-17",
+      "date_max": "2026-10-18"
+    },
+    "play_store": {
+      "rows": 182949,
+      "date_min": "2024-01-01",
+      "date_max": "2026-10-19"
+    },
+    "reddit": {
+      "rows": 0,
+      "date_min": null,
+      "date_max": null
+    },
+    "tradingqna": {
+      "rows": 4653,
+      "date_min": "2014-10-02",
+      "date_max": "2026-10-19"
+    },
+    "upi_app_reviews": {
+      "rows": 56,
+      "date_min": "2026-01-19",
+      "date_max": "2026-10-18"
+    },
+    "youtube": {
+      "rows": 4160,
+      "date_min": "2019-10-20",
+      "date_max": "2026-10-19"
+    }
+  }
+}

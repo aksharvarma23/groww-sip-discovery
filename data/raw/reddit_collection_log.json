@@ -1,0 +1,41 @@
+{
+  "source": "Arctic Shift archive (https://arctic-shift.photon-reddit.com)",
+  "cap_per_sub_month_per_kind": 25,
+  "start": "2021-01",
+  "kinds": [
+    "posts",
+    "comments"
+  ],
+  "incomplete_windows": [],
+  "per_sub": {
+    "personalfinanceindia": {
+      "posts_fetched": 65515,
+      "posts_sip": 12171,
+      "comments_fetched": 20832,
+      "comments_sip": 20803,
+      "kept": 2272
+    },
+    "IndiaInvestments": {
+      "posts_fetched": 59376,
+      "posts_sip": 1198,
+      "comments_fetched": 8471,
+      "comments_sip": 8457,
+      "kept": 2738
+    },
+    "mutualfunds": {
+      "posts_fetched": 43734,
+      "posts_sip": 23525,
+      "comments_fetched": 20506,
+      "comments_sip": 20468,
+      "kept": 2356
+    },
+    "FIREIndia": {
+      "posts_fetched": 5501,
+      "posts_sip": 387,
+      "comments_fetched": 777,
+      "comments_sip": 760,
+      "kept": 1027
+    }
+  },
+  "comments_with_parent_title": 4452
+}

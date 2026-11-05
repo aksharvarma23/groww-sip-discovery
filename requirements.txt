@@ -1,0 +1,8 @@
+pandas>=2.1
+requests>=2.31
+praw>=7.7
+google-play-scraper>=1.2.7
+yt-dlp>=2025.1.1
+anthropic>=0.40
+scikit-learn>=1.4
+streamlit>=1.38

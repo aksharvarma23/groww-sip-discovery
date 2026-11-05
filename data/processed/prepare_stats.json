@@ -1,0 +1,34 @@
+{
+  "raw": {
+    "app_store": 100,
+    "play_store": 182949,
+    "reddit": 8393,
+    "tradingqna": 4653,
+    "upi_app_reviews": 56,
+    "youtube": 4160
+  },
+  "after_date_filter": {
+    "app_store": 100,
+    "play_store": 182949,
+    "reddit": 8393,
+    "tradingqna": 2758,
+    "upi_app_reviews": 56,
+    "youtube": 3978
+  },
+  "after_length_and_dedupe": {
+    "app_store": 73,
+    "play_store": 58593,
+    "reddit": 8253,
+    "tradingqna": 2607,
+    "upi_app_reviews": 51,
+    "youtube": 2321
+  },
+  "after_relevance_prefilter": {
+    "app_store": 8,
+    "play_store": 3899,
+    "reddit": 8253,
+    "tradingqna": 2607,
+    "upi_app_reviews": 51,
+    "youtube": 2321
+  }
+}
