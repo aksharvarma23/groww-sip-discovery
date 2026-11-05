@@ -1,0 +1,66 @@
+{
+  "respondents": 23,
+  "with_sip": 18,
+  "segment": {
+    "Student / first job": 9,
+    "Working 2+ years": 6,
+    "Other": 3
+  },
+  "stopped_by_segment": {
+    "Other": 1,
+    "Student / first job": 6,
+    "Working 2+ years": 1
+  },
+  "status": {
+    "Still running: money goes in every month": 10,
+    "I stopped it": 7,
+    "Still running, but I've skipped some months": 1
+  },
+  "who": {
+    "It was my own idea": 9,
+    "Friends or colleagues": 3,
+    "YouTube or Instagram": 3,
+    "My family set it up for me": 2,
+    "My family told me to": 1
+  },
+  "explain": {
+    "Roughly": 5,
+    "Yes, clearly": 5,
+    "I only knew the fund's name": 5,
+    "No": 3
+  },
+  "thought_of_stopping": {
+    "Once or twice": 7,
+    "Never": 6,
+    "Yes, many times": 5
+  },
+  "never_doubted_and_stopped": 0,
+  "doubt_triggers": {
+    "I needed the money for something else": 6,
+    "The profit looked too small": 5,
+    "News about the market falling": 5,
+    "It was showing a loss": 4,
+    "The 'money will be debited' message": 2,
+    "Something someone said to me": 2
+  },
+  "what_next": {
+    "Searched on Google": 5,
+    "Nothing, I didn't look into it": 4,
+    "Watched YouTube videos": 3,
+    "Asked friends": 2,
+    "Read Reddit or forums": 2,
+    "Asked family": 0,
+    "Used the app's help section": 0
+  },
+  "how_stopped": {
+    "Cancelled the SIP in the investing app": 3,
+    "Withdrew the money": 2,
+    "Turned off AutoPay or the mandate in GPay, PhonePe or my bank app": 1,
+    "Don't remember": 1
+  },
+  "restart_plan": {
+    "Yes, but I haven't got to it yet": 5,
+    "Yes, and I already have": 1,
+    "No": 1
+  }
+}

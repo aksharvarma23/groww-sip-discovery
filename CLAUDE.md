@@ -26,6 +26,18 @@ Groww. Cash flow, mandate set-up, UX and trust are tracked as checks.
 - `engine/prepare.py` raw -> `data/processed/corpus.csv` (dedupe, length, SIP/MF relevance prefilter)
 - `engine/label.py` Claude labelling, resumable JSONL cache in `data/processed/labels_<model>.jsonl`
 - `engine/export_pilot.py` pilot labels joined to text for human review
+- `collect/reddit_arctic.py` Reddit via the Arctic Shift archive (Reddit's own API needs approval since Nov 2025)
+- `eval/golden_set.xlsx` the user's blind hand labels (20 items); `eval/score_golden.py` scores the engine against them
+- `engine/build_outputs.py` writes the small summary files in `outputs/` that the apps read
+- `apps/engine_app.py` the public Streamlit dashboard (Gemini only for the live "Try it" tab)
+
+## Status (Nov 2026)
+
+Collection, labelling and golden-set scoring are done. Segment changed to
+students and first-jobbers after the survey. Engine fields below 75% agreement
+with the golden set (understanding, doubt_resolved, outcome, doubt_triggers)
+are used qualitatively only; break counts are upper bounds (about 1 in 3
+confirmed). Never commit survey responses, raw scrapes or API keys.
 
 ## Step 3 runbook
 

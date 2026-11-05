@@ -1,0 +1,439 @@
+{
+  "funnel": {
+    "raw": {
+      "app_store": 100,
+      "play_store": 182949,
+      "reddit": 8393,
+      "tradingqna": 4653,
+      "upi_app_reviews": 56,
+      "youtube": 4160
+    },
+    "after_date_filter": {
+      "app_store": 100,
+      "play_store": 182949,
+      "reddit": 8393,
+      "tradingqna": 2758,
+      "upi_app_reviews": 56,
+      "youtube": 3978
+    },
+    "after_length_and_dedupe": {
+      "app_store": 73,
+      "play_store": 58593,
+      "reddit": 8253,
+      "tradingqna": 2607,
+      "upi_app_reviews": 51,
+      "youtube": 2321
+    },
+    "after_relevance_prefilter": {
+      "app_store": 8,
+      "play_store": 3899,
+      "reddit": 8253,
+      "tradingqna": 2607,
+      "upi_app_reviews": 51,
+      "youtube": 2321
+    },
+    "labelled": {
+      "app_store": 8,
+      "play_store": 3899,
+      "reddit": 8244,
+      "tradingqna": 2607,
+      "upi_app_reviews": 51,
+      "youtube": 2321
+    },
+    "relevant": {
+      "app_store": 2,
+      "play_store": 1835,
+      "reddit": 6784,
+      "tradingqna": 998,
+      "upi_app_reviews": 21,
+      "youtube": 1155
+    }
+  },
+  "manifest": {
+    "collected_on": "2026-10-20",
+    "sources": {
+      "app_store": {
+        "rows": 100,
+        "date_min": "2026-09-17",
+        "date_max": "2026-10-18"
+      },
+      "play_store": {
+        "rows": 182949,
+        "date_min": "2024-01-01",
+        "date_max": "2026-10-19"
+      },
+      "reddit": {
+        "rows": 0,
+        "date_min": null,
+        "date_max": null
+      },
+      "tradingqna": {
+        "rows": 4653,
+        "date_min": "2014-10-02",
+        "date_max": "2026-10-19"
+      },
+      "upi_app_reviews": {
+        "rows": 56,
+        "date_min": "2026-01-19",
+        "date_max": "2026-10-18"
+      },
+      "youtube": {
+        "rows": 4160,
+        "date_min": "2019-10-20",
+        "date_max": "2026-10-19"
+      }
+    }
+  },
+  "reddit_log": {
+    "source": "Arctic Shift archive (https://arctic-shift.photon-reddit.com)",
+    "cap_per_sub_month_per_kind": 25,
+    "start": "2021-01",
+    "kinds": [
+      "posts",
+      "comments"
+    ],
+    "incomplete_windows": [],
+    "per_sub": {
+      "personalfinanceindia": {
+        "posts_fetched": 65515,
+        "posts_sip": 12171,
+        "comments_fetched": 20832,
+        "comments_sip": 20803,
+        "kept": 2272
+      },
+      "IndiaInvestments": {
+        "posts_fetched": 59376,
+        "posts_sip": 1198,
+        "comments_fetched": 8471,
+        "comments_sip": 8457,
+        "kept": 2738
+      },
+      "mutualfunds": {
+        "posts_fetched": 43734,
+        "posts_sip": 23525,
+        "comments_fetched": 20506,
+        "comments_sip": 20468,
+        "kept": 2356
+      },
+      "FIREIndia": {
+        "posts_fetched": 5501,
+        "posts_sip": 387,
+        "comments_fetched": 777,
+        "comments_sip": 760,
+        "kept": 1027
+      }
+    },
+    "comments_with_parent_title": 4452
+  },
+  "outcomes_by_source": {
+    "app_store": {
+      "cancelled_in_platform": 0,
+      "considering_stop": 0,
+      "continued": 0,
+      "debit_failed": 0,
+      "increased": 0,
+      "redeemed": 0,
+      "revoked_upi_mandate": 0,
+      "skipped": 0,
+      "unstated": 2
+    },
+    "play_store": {
+      "cancelled_in_platform": 69,
+      "considering_stop": 83,
+      "continued": 134,
+      "debit_failed": 153,
+      "increased": 1,
+      "redeemed": 134,
+      "revoked_upi_mandate": 0,
+      "skipped": 12,
+      "unstated": 1249
+    },
+    "reddit": {
+      "cancelled_in_platform": 155,
+      "considering_stop": 717,
+      "continued": 1147,
+      "debit_failed": 95,
+      "increased": 149,
+      "redeemed": 83,
+      "revoked_upi_mandate": 14,
+      "skipped": 193,
+      "unstated": 4231
+    },
+    "tradingqna": {
+      "cancelled_in_platform": 7,
+      "considering_stop": 34,
+      "continued": 65,
+      "debit_failed": 30,
+      "increased": 4,
+      "redeemed": 1,
+      "revoked_upi_mandate": 0,
+      "skipped": 6,
+      "unstated": 851
+    },
+    "upi_app_reviews": {
+      "cancelled_in_platform": 1,
+      "considering_stop": 0,
+      "continued": 1,
+      "debit_failed": 2,
+      "increased": 0,
+      "redeemed": 3,
+      "revoked_upi_mandate": 0,
+      "skipped": 0,
+      "unstated": 14
+    },
+    "youtube": {
+      "cancelled_in_platform": 21,
+      "considering_stop": 103,
+      "continued": 99,
+      "debit_failed": 12,
+      "increased": 7,
+      "redeemed": 10,
+      "revoked_upi_mandate": 1,
+      "skipped": 13,
+      "unstated": 889
+    }
+  },
+  "started_by": {
+    "unstated": 8315,
+    "self": 2250,
+    "family": 120,
+    "friends_peers": 52,
+    "app_prompt": 26,
+    "finfluencer": 21,
+    "employer": 11
+  },
+  "metric_nodes": {
+    "C_drift": {
+      "desc": "PRIMARY. A skipped or forgotten SIP comes back instead of lapsing",
+      "break_posts": 341,
+      "addressability": 0.8
+    },
+    "B3_doubt_resolution": {
+      "desc": "When doubt hits, the investor can resolve it",
+      "break_posts": 756,
+      "addressability": 0.8
+    },
+    "B1_progress_fit": {
+      "desc": "What the investor sees matches what they expected",
+      "break_posts": 415,
+      "addressability": 0.7
+    },
+    "A_mechanical": {
+      "desc": "Instalments keep succeeding without anyone deciding",
+      "break_posts": 363,
+      "addressability": 0.9
+    },
+    "B2_affordability": {
+      "desc": "Amount and date fit the investor's cash flow",
+      "break_posts": 158,
+      "addressability": 0.6
+    },
+    "B4_trust": {
+      "desc": "The investor trusts the platform",
+      "break_posts": 516,
+      "addressability": 0.4
+    },
+    "D_competing_needs": {
+      "desc": "Money is not pulled for another need",
+      "break_posts": 82,
+      "addressability": 0.3
+    }
+  },
+  "segments": {
+    "Student / first job": {
+      "items": 1046,
+      "breaks": 152,
+      "outcomes": {
+        "considering_stop": 104,
+        "skipped": 27,
+        "cancelled_in_platform": 10,
+        "redeemed": 9,
+        "debit_failed": 1,
+        "revoked_upi_mandate": 1
+      },
+      "doubt_triggers": {
+        "negative_returns": 31,
+        "someone_comment": 24,
+        "market_news": 17,
+        "fund_comparison": 15,
+        "small_early_returns": 11,
+        "debit_alert": 2
+      },
+      "other_signals": {
+        "cash_crunch": 37,
+        "competing_expense": 34,
+        "tax_confusion": 11,
+        "platform_distrust": 11,
+        "charges_concern": 8,
+        "mandate_setup_problem": 2,
+        "insufficient_balance": 1,
+        "app_ux_problem": 1
+      },
+      "started_by": {
+        "self": 576,
+        "family": 47,
+        "friends_peers": 9,
+        "finfluencer": 7,
+        "employer": 5,
+        "app_prompt": 1
+      }
+    },
+    "Working longer": {
+      "items": 453,
+      "breaks": 62,
+      "outcomes": {
+        "considering_stop": 31,
+        "skipped": 21,
+        "cancelled_in_platform": 5,
+        "redeemed": 4,
+        "debit_failed": 1
+      },
+      "doubt_triggers": {
+        "market_news": 12,
+        "negative_returns": 8,
+        "fund_comparison": 8,
+        "someone_comment": 7,
+        "small_early_returns": 6
+      },
+      "other_signals": {
+        "cash_crunch": 11,
+        "competing_expense": 10,
+        "tax_confusion": 6,
+        "charges_concern": 5,
+        "platform_distrust": 2,
+        "mandate_setup_problem": 1
+      },
+      "started_by": {
+        "self": 253,
+        "family": 14,
+        "friends_peers": 7,
+        "finfluencer": 1
+      }
+    }
+  },
+  "golden": {
+    "voice": {
+      "agree": 14,
+      "n": 20,
+      "share": 0.7,
+      "passes": false,
+      "disagree_ids": [
+        "G01",
+        "G03",
+        "G12",
+        "G15",
+        "G17",
+        "G20"
+      ]
+    },
+    "started_by": {
+      "agree": 14,
+      "n": 20,
+      "share": 0.7,
+      "passes": false,
+      "disagree_ids": [
+        "G09",
+        "G10",
+        "G12",
+        "G13",
+        "G15",
+        "G16"
+      ]
+    },
+    "understanding": {
+      "agree": 9,
+      "n": 20,
+      "share": 0.45,
+      "passes": false,
+      "disagree_ids": [
+        "G01",
+        "G02",
+        "G06",
+        "G07",
+        "G08",
+        "G13",
+        "G14",
+        "G15",
+        "G16",
+        "G19",
+        "G20"
+      ]
+    },
+    "return_horizon": {
+      "agree": 15,
+      "n": 20,
+      "share": 0.75,
+      "passes": true,
+      "disagree_ids": [
+        "G04",
+        "G08",
+        "G11",
+        "G12",
+        "G16"
+      ]
+    },
+    "doubt_triggers": {
+      "agree": 11,
+      "n": 20,
+      "share": 0.55,
+      "passes": false,
+      "disagree_ids": [
+        "G01",
+        "G02",
+        "G04",
+        "G07",
+        "G08",
+        "G11",
+        "G12",
+        "G19",
+        "G20"
+      ]
+    },
+    "doubt_resolved": {
+      "agree": 8,
+      "n": 20,
+      "share": 0.4,
+      "passes": false,
+      "disagree_ids": [
+        "G01",
+        "G04",
+        "G07",
+        "G08",
+        "G09",
+        "G13",
+        "G14",
+        "G15",
+        "G16",
+        "G17",
+        "G18",
+        "G20"
+      ]
+    },
+    "outcome": {
+      "agree": 9,
+      "n": 20,
+      "share": 0.45,
+      "passes": false,
+      "disagree_ids": [
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "G05",
+        "G06",
+        "G07",
+        "G09",
+        "G12",
+        "G14",
+        "G20"
+      ]
+    },
+    "_break_precision": {
+      "ai_breaks": 13,
+      "human_breaks": 4,
+      "both": 4
+    }
+  },
+  "quote_verified_share": 0.94,
+  "median_confidence": 0.6
+}
