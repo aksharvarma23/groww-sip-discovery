@@ -246,8 +246,14 @@ with tabs[5]:
                 from gemini_label import label_text
                 with st.spinner("Labelling..."):
                     lab = label_text(text, key, model)
-            except Exception as e:  # rate limit, network, malformed output
-                st.error(f"The model call failed ({e.__class__.__name__}). Try again in a minute.")
+            except Exception as e:  # rate limit, timeout, network, malformed output
+                msg = str(e)
+                if "429" in msg or "RESOURCE_EXHAUSTED" in msg:
+                    st.error("The free AI quota is used up for the moment. Try again in a minute; the other tabs still work.")
+                elif "timed out" in msg.lower() or "timeout" in msg.lower():
+                    st.error("The model took too long to answer. Try again; the other tabs still work.")
+                else:
+                    st.error(f"The model call failed ({e.__class__.__name__}). Try again in a minute.")
             else:
                 checks = []
                 if lab["validation_issues"]:

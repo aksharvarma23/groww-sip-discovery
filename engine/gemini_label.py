@@ -30,20 +30,34 @@ def _schema_hint() -> str:
     return "\n".join(lines)
 
 
-def label_text(text: str, api_key: str, model: str = DEFAULT_MODEL) -> dict:
+def _thinking(model: str):
+    """Keep reasoning short: labelling is a lookup task, and a long think makes the demo hang."""
+    from google.genai import types
+    if model.startswith("gemini-2."):
+        return types.ThinkingConfig(thinking_budget=0)
+    return types.ThinkingConfig(thinking_level="low")
+
+
+def label_text(text: str, api_key: str, model: str = DEFAULT_MODEL, timeout_s: int = 40) -> dict:
     from google import genai
     from google.genai import types
 
-    client = genai.Client(api_key=api_key)
+    client = genai.Client(api_key=api_key,
+                          http_options=types.HttpOptions(timeout=timeout_s * 1000,
+                                                         retry_options=types.HttpRetryOptions(attempts=1)))
     prompt = (_schema_hint() + "\n\nLabel this item.\n\n"
               + json.dumps({"id": "live", "source": "user_input", "context": "", "text": text[:1800]},
                            ensure_ascii=False))
-    resp = client.models.generate_content(
-        model=model,
-        contents=prompt,
-        config=types.GenerateContentConfig(system_instruction=SYSTEM, temperature=0,
-                                           response_mime_type="application/json"),
-    )
+    base = dict(system_instruction=SYSTEM, temperature=0, response_mime_type="application/json",
+                max_output_tokens=1200)
+    try:
+        cfg = types.GenerateContentConfig(**base, thinking_config=_thinking(model))
+        resp = client.models.generate_content(model=model, contents=prompt, config=cfg)
+    except Exception as e:  # some models reject a thinking setting; retry once without it
+        if "thinking" not in str(e).lower():
+            raise
+        resp = client.models.generate_content(model=model, contents=prompt,
+                                              config=types.GenerateContentConfig(**base))
     raw = json.loads(resp.text)
     if isinstance(raw, list):
         raw = raw[0]
