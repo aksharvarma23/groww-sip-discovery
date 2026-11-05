@@ -38,7 +38,20 @@ def _thinking(model: str):
     return types.ThinkingConfig(thinking_level="low")
 
 
-def label_text(text: str, api_key: str, model: str = DEFAULT_MODEL, timeout_s: int = 40) -> dict:
+FALLBACK_MODELS = ["gemini-2.5-flash", "gemini-2.5-flash-lite"]
+
+
+def _call(client, model, prompt, base, thinking: bool):
+    from google.genai import types
+    cfg = types.GenerateContentConfig(**base, thinking_config=_thinking(model)) if thinking \
+        else types.GenerateContentConfig(**base)
+    return client.models.generate_content(model=model, contents=prompt, config=cfg)
+
+
+def label_text(text: str, api_key: str, model: str = DEFAULT_MODEL, timeout_s: int = 30,
+               fallbacks: list[str] | None = None) -> dict:
+    """Try the configured model, then fallbacks. Returns the validated labels plus
+    `_model` (which model answered) and `_errors` (what failed on the way)."""
     from google import genai
     from google.genai import types
 
@@ -49,17 +62,21 @@ def label_text(text: str, api_key: str, model: str = DEFAULT_MODEL, timeout_s: i
               + json.dumps({"id": "live", "source": "user_input", "context": "", "text": text[:1800]},
                            ensure_ascii=False))
     base = dict(system_instruction=SYSTEM, temperature=0, response_mime_type="application/json",
-                max_output_tokens=1200)
-    try:
-        cfg = types.GenerateContentConfig(**base, thinking_config=_thinking(model))
-        resp = client.models.generate_content(model=model, contents=prompt, config=cfg)
-    except Exception as e:  # some models reject a thinking setting; retry once without it
-        if "thinking" not in str(e).lower():
-            raise
-        resp = client.models.generate_content(model=model, contents=prompt,
-                                              config=types.GenerateContentConfig(**base))
-    raw = json.loads(resp.text)
-    if isinstance(raw, list):
-        raw = raw[0]
-    raw["id"] = "live"
-    return validate(raw, text[:1800])
+                max_output_tokens=1500)
+    errors = []
+    for m in dict.fromkeys([model] + (fallbacks if fallbacks is not None else FALLBACK_MODELS)):
+        for thinking in (True, False):
+            try:
+                resp = _call(client, m, prompt, base, thinking)
+                raw = json.loads(resp.text)
+            except Exception as e:  # server error, timeout, bad JSON, unsupported setting
+                errors.append(f"{m} (thinking={'low' if thinking else 'default'}): "
+                              f"{e.__class__.__name__}: {str(e)[:160]}")
+                continue
+            if isinstance(raw, list):
+                raw = raw[0]
+            raw["id"] = "live"
+            lab = validate(raw, text[:1800])
+            lab["_model"], lab["_errors"] = m, errors
+            return lab
+    raise RuntimeError("All models failed:\n" + "\n".join(errors))
