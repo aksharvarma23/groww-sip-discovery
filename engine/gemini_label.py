@@ -38,7 +38,32 @@ def _thinking(model: str):
     return types.ThinkingConfig(thinking_level="low")
 
 
-FALLBACK_MODELS = ["gemini-2.5-flash", "gemini-2.5-flash-lite"]
+FALLBACK_MODELS: list[str] | None = None  # None = ask the API which models this key can use
+
+_SKIP = ("image", "tts", "audio", "live", "embedding", "vision", "learnlm", "robotics", "computer-use")
+
+
+def available_models(client, exclude: str = "", limit: int = 3) -> list[str]:
+    """Text models this key can call right now, lighter ones first (they are less
+    congested on the free tier), newest version first within each group."""
+    import re
+    names = []
+    try:
+        for m in client.models.list():
+            name = (m.name or "").removeprefix("models/")
+            acts = getattr(m, "supported_actions", None) or []
+            if "generateContent" not in acts or not name.startswith("gemini") or "flash" not in name:
+                continue
+            if any(k in name for k in _SKIP) or name == exclude:
+                continue
+            names.append(name)
+    except Exception:
+        return []
+
+    def key(n):
+        ver = re.findall(r"gemini-(\d+(?:\.\d+)?)", n)
+        return (0 if "lite" in n else 1, "preview" in n or "exp" in n, -float(ver[0]) if ver else 0, n)
+    return sorted(set(names), key=key)[:limit]
 
 
 def _call(client, model, prompt, base, thinking: bool):
@@ -64,7 +89,9 @@ def label_text(text: str, api_key: str, model: str = DEFAULT_MODEL, timeout_s: i
     base = dict(system_instruction=SYSTEM, temperature=0, response_mime_type="application/json",
                 max_output_tokens=1500)
     errors = []
-    for m in dict.fromkeys([model] + (fallbacks if fallbacks is not None else FALLBACK_MODELS)):
+    if fallbacks is None:
+        fallbacks = FALLBACK_MODELS if FALLBACK_MODELS is not None else available_models(client, exclude=model)
+    for m in dict.fromkeys([model] + fallbacks):
         for thinking in (True, False):
             try:
                 resp = _call(client, m, prompt, base, thinking)
