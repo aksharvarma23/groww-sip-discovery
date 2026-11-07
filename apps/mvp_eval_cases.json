@@ -1,0 +1,22 @@
+[
+  {"id": "E01", "text": "I need around 15k for my course fees next month so I can't pay the SIP for a while. I'll start again after that.", "expected": "temporary_money_need", "basis": "survey: 'needed the money for something else' (top trigger)"},
+  {"id": "E02", "text": "Sir main sip ka paisa 2 months nahi de paunga. Skip karu ya cancel? 2 mahine baad firse start karna hai.", "expected": "temporary_money_need", "basis": "YouTube comment (paraphrased)"},
+  {"id": "E03", "text": "Had a knee operation, can't work for a month, money is tight. Just need one month off from the SIP.", "expected": "temporary_money_need", "basis": "Play Store review (paraphrased)"},
+  {"id": "E04", "text": "My stipend is late this month and the balance won't be there on the debit date.", "expected": "temporary_money_need", "basis": "survey segment: stipend income"},
+  {"id": "E05", "text": "7 months in and my profit is only 300 rupees. What's the point of continuing?", "expected": "disappointing_returns", "basis": "survey: 'profit looked too small'"},
+  {"id": "E06", "text": "6 months ho gaye, 2000 ka SIP hai aur return abhi bhi -5% hai. Band kar du?", "expected": "disappointing_returns", "basis": "YouTube comment (paraphrased)"},
+  {"id": "E07", "text": "It's been a year and the value is less than what I put in. Should I take it out at a loss or wait?", "expected": "disappointing_returns", "basis": "YouTube comment (paraphrased)"},
+  {"id": "E08", "text": "Started in June, it's February and I've gained nothing. Feeling like I made a wrong decision.", "expected": "disappointing_returns", "basis": "Reddit post (paraphrased)"},
+  {"id": "E09", "text": "Everyone on the news is saying the market will crash because of the war situation. Want to stop before it gets worse.", "expected": "outside_doubt", "basis": "Reddit post (paraphrased)"},
+  {"id": "E10", "text": "My friend says SIPs are useless and I should buy stocks directly instead.", "expected": "outside_doubt", "basis": "questionnaire scenario 9"},
+  {"id": "E11", "text": "Papa ne start karwaya tha but uncle bol rahe hai FD better hai. Confused hu.", "expected": "outside_doubt", "basis": "family-influence hypothesis"},
+  {"id": "E12", "text": "My autopay failed because of low balance and now there are two SIPs running in the same fund. I just want to cancel all this.", "expected": "payment_or_app_problem", "basis": "Reddit post (paraphrased)"},
+  {"id": "E13", "text": "I changed my phone number and OTP still goes to the old one, so I'm stopping the SIP.", "expected": "payment_or_app_problem", "basis": "Play Store review (paraphrased)"},
+  {"id": "E14", "text": "I cancelled the SIP but my bank still tried to debit and charged me a bounce fee.", "expected": "payment_or_app_problem", "basis": "Reddit post (paraphrased)"},
+  {"id": "E15", "text": "I was saving for a bike and I've bought it now, so I don't need this SIP any more.", "expected": "goal_changed", "basis": "codebook: goal reached"},
+  {"id": "E16", "text": "This fund has too much overlap with my other one, I want to move this money to a different fund.", "expected": "switching_funds", "basis": "Reddit: most 'stopped my SIP' posts are fund switches"},
+  {"id": "E17", "text": "Which fund should I switch to instead? Tell me the best one.", "expected": "switching_funds", "basis": "adversarial: asks for a fund recommendation", "must_flag_advice": true},
+  {"id": "E18", "text": "Will the market go up next year? If you think it will fall I'll stop now.", "expected": "outside_doubt", "basis": "adversarial: asks for a market prediction", "must_flag_advice": true},
+  {"id": "E19", "text": "just want to stop", "expected": "unclear", "basis": "no reason given"},
+  {"id": "E20", "text": "Rent went up and my first job salary barely covers everything now. Maybe I'll restart after my increment.", "expected": "temporary_money_need", "basis": "survey segment: first-jobbers"}
+]
