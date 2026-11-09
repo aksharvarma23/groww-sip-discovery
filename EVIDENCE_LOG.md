@@ -4,6 +4,7 @@ Case study: Growth PM, Groww. Metric: share of first-time mutual fund investors 
 (a successful instalment in the last 30 days) 12 months after their first SIP.
 
 - Discovery engine (live): https://akshargroww-sip-discovery.streamlit.app/
+- MVP "Before you stop" (live): https://groww-before-you-stop.streamlit.app/
 - Code and data summaries: this repository
 - If an app shows "This app has gone to sleep", click the wake-up button; it takes about 30 seconds.
 
@@ -126,7 +127,13 @@ no reason given).
 | Non-AI version (keyword rules) picks the right category | 14/20 (misses Hinglish and mixed reasons) |
 | Quality gate blocks seeded bad outputs (advice, fund name, urgency, invented number) | 4/4 blocked |
 | Pre-written fallback text passes its own gate | 7/7 categories |
-| AI version on the 20 cases | Not completed: the Gemini free tier returned "high demand" (503) and retired-model (404) errors during the build window. The harness runs in the app's "Quality check" tab whenever a key is set. |
+| AI version (Gemini, run live in the app's "Quality check" tab on 9 Nov 2026): right category | 20/20 |
+| AI text passed the quality gate | 19/20 (the 1 failure was replaced by the pre-written text, as designed) |
+| Requests for a fund tip or a market prediction flagged | 2/2 |
+
+The AI run was repeatable from the deployed app; the Gemini free tier had returned overload (503) and
+retired-model (404) errors on earlier days, which is why the app discovers available models and falls back
+to keyword rules when none answers.
 
 **Safe fallback.** When the AI is unavailable or its answer fails the gate, the app shows reviewed,
 pre-written text for the reason category and says so on screen. Numbers are always computed by code.
@@ -139,6 +146,7 @@ pre-written text for the reason category and says so on screen. Numbers are alwa
 - LLM labels are reliable only for relevance and return horizon (see section 3).
 - Survey: 23 respondents, convenience sample, includes the author.
 - No interviews and no MVP user tests were completed in the time available.
-- The MVP's AI provider (Gemini free tier) was unavailable at submission; the app runs on its fallback.
+- The MVP test set is 20 cases written by the author from real posts: a small, single-author benchmark.
+- The MVP depends on the Gemini free tier, which was intermittently unavailable during the build; the app falls back to keyword rules and says so on screen.
 
 Nothing in this project is investment advice.
